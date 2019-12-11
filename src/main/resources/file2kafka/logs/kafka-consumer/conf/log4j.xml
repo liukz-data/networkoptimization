@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Console logger configure. -->
+	<appender name="stdout" class="org.apache.log4j.AsyncAppender">
+		<appender-ref ref="stdout_config" />
+	</appender>
+	<appender name="stdout_config" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %p [%c] - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- File logger configure. -->
+	<appender name="debug_file" class="org.apache.log4j.AsyncAppender">
+		<appender-ref ref="debug_file_config" />
+	</appender>
+	<appender name="debug_file_config" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="logs/debug.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %p [%c] - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="DEBUG" />
+			<param name="LevelMin" value="DEBUG" />
+		</filter>
+	</appender>
+	<appender name="info_file" class="org.apache.log4j.AsyncAppender">
+		<appender-ref ref="info_file_config" />
+	</appender>
+	<appender name="info_file_config" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="logs/info.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %p [%c] - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="INFO" />
+			<param name="LevelMin" value="INFO" />
+		</filter>
+	</appender>
+	<appender name="warn_file" class="org.apache.log4j.AsyncAppender">
+		<appender-ref ref="warn_file_config" />
+	</appender>
+	<appender name="warn_file_config" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="logs/warn.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %p [%c] - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="WARN" />
+			<param name="LevelMin" value="WARN" />
+		</filter>
+	</appender>
+	<appender name="error_file" class="org.apache.log4j.AsyncAppender">
+		<appender-ref ref="error_file_config" />
+	</appender>
+	<appender name="error_file_config" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="logs/error.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %p [%c] - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="ERROR" />
+		</filter>
+	</appender>
+	<appender name="fatal_file" class="org.apache.log4j.AsyncAppender">
+		<appender-ref ref="fatal_file_config" />
+	</appender>
+	<appender name="fatal_file_config" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="logs/fatal.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %p [%c] - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="FATAL" />
+			<param name="LevelMin" value="FATAL" />
+		</filter>
+	</appender>
+
+	<!-- Logger configure. -->
+	<root>
+		<level value="info" />
+
+		<appender-ref ref="stdout" />
+		<appender-ref ref="debug_file" />
+		<appender-ref ref="info_file" />
+		<appender-ref ref="warn_file" />
+		<appender-ref ref="error_file" />
+		<appender-ref ref="fatal_file" />
+		
+	</root>
+
+</log4j:configuration>
+

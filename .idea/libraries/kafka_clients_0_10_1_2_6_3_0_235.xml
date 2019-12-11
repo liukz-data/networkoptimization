@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="kafka-clients-0.10.1.2.6.3.0-235">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/java/kafka-clients-0.10.1.2.6.3.0-235.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
